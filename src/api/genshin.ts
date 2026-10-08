@@ -24,3 +24,12 @@ export async function getCharacters(): Promise<Character[]> {
 export function characterImage(id: string): string {
   return `https://genshin.jmp.blue/characters/${encodeURIComponent(id)}/card`
 }
+
+export function elementIcon(vision: string): string | undefined {
+  const element = vision.trim().toLowerCase()
+  const supported = ['anemo', 'geo', 'electro', 'dendro', 'hydro', 'pyro', 'cryo']
+
+  if (!supported.includes(element)) return undefined
+
+  return `https://genshin.jmp.blue/elements/${element}/icon`
+}

@@ -74,9 +74,13 @@ export default function ListPage({ characters }: Props) {
           <li key={character.id}>
             <Link to={`/characters/${character.id}`}>
               <strong>{character.name}</strong>
-              <span>
-                {character.vision} · {character.weapon} ·
-                {' '}{character.rarity} stars
+              <span className="list-metadata">
+                <span className="list-element">
+                  {character.vision}
+                </span>
+                <span className={`rarity-badge rarity-${character.rarity}`}>
+                  <span aria-hidden="true">★</span> {character.rarity} stars
+                </span>
               </span>
             </Link>
           </li>

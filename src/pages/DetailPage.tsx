@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router'
-import { characterImage } from '../api/genshin'
+import { characterImage, elementIcon } from '../api/genshin'
 import type { Character } from '../types/character'
 
 interface Props {
@@ -28,6 +28,7 @@ export default function DetailPage({ characters }: Props) {
   const previous =
     ordered[(index - 1 + ordered.length) % ordered.length]
   const next = ordered[(index + 1) % ordered.length]
+  const icon = elementIcon(character.vision)
 
   return (
     <article className="character-detail">
@@ -53,7 +54,23 @@ export default function DetailPage({ characters }: Props) {
           <p className="character-description">{character.description || 'No description available.'}</p>
 
           <dl className="character-attributes">
-            <div><dt>Element</dt><dd>{character.vision}</dd></div>
+            <div>
+              <dt>Element</dt>
+              <dd>
+                {character.vision}
+                {icon && (
+                  <img
+                    key={icon}
+                    className="element-icon"
+                    src={icon}
+                    alt=""
+                    width="48"
+                    height="48"
+                    onError={event => { event.currentTarget.hidden = true }}
+                  />
+                )}
+              </dd>
+            </div>
             <div><dt>Weapon</dt><dd>{character.weapon}</dd></div>
             <div><dt>Rarity</dt><dd>{character.rarity} stars</dd></div>
             <div><dt>Nation</dt><dd>{character.nation || 'Unknown'}</dd></div>

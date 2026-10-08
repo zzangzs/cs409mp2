@@ -18,7 +18,12 @@ export default function CharacterCard({ character }: Props) {
         loading="lazy"
       />
       <h3>{character.name}</h3>
-      <p>{character.vision} · {character.rarity} stars</p>
+      <div className="card-metadata">
+        <span className="card-element">{character.vision}</span>
+        <span className={`rarity-badge rarity-${character.rarity}`}>
+          <span aria-hidden="true">★</span> {character.rarity} stars
+        </span>
+      </div>
     </Link>
   )
 }

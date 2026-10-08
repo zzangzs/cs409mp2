@@ -44,6 +44,7 @@ label {
 
 .character-list a {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -51,6 +52,49 @@ label {
   background: #1f2937;
   border-radius: 0.5rem;
   text-decoration: none;
+}
+
+.list-metadata {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.list-element {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.rarity-badge {
+  min-width: 6.5rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid #718096;
+  border-radius: 999px;
+  background: #293548;
+  color: #edf2fa;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.rarity-3 {
+  color: #bfdbfe;
+  background: #172f50;
+  border-color: #60a5fa;
+}
+
+.rarity-4 {
+  color: #e9d5ff;
+  background: #3b2459;
+  border-color: #c084fc;
+}
+
+.rarity-5 {
+  color: #fde68a;
+  background: #49361a;
+  border-color: #e9b949;
 }
 
 .gallery {
@@ -71,6 +115,19 @@ label {
   width: 100%;
   height: 260px;
   object-fit: contain;
+}
+
+.card-metadata {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card-element {
+  color: #cbd5e1;
+  font-size: 0.9rem;
 }
 
 .detail-navigation {
@@ -150,6 +207,16 @@ label {
 .character-attributes dd {
   margin: 0.3rem 0 0;
   font-weight: 600;
+}
+
+.element-icon {
+  display: block;
+  margin-top: 0.6rem;
+  object-fit: contain;
+}
+
+.element-icon[hidden] {
+  display: none;
 }
 
 .talents-heading {

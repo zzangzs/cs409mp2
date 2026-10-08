@@ -30,7 +30,7 @@ export default function DetailPage({ characters }: Props) {
   const next = ordered[(index + 1) % ordered.length]
 
   return (
-    <article>
+    <article className="character-detail">
       <nav className="detail-navigation" aria-label="Character navigation">
         <Link to={`/characters/${previous.id}`}>
           ← Previous: {previous.name}
@@ -47,25 +47,25 @@ export default function DetailPage({ characters }: Props) {
           alt={character.name}
         />
 
-        <div>
-          <h2>{character.name}</h2>
-          {character.title && <p>{character.title}</p>}
-          <p>{character.description || 'No description available.'}</p>
+        <div className="character-summary">
+          <h2 className="character-name">{character.name}</h2>
+          {character.title && <p className="character-title">{character.title}</p>}
+          <p className="character-description">{character.description || 'No description available.'}</p>
 
-          <dl>
-            <dt>Element</dt><dd>{character.vision}</dd>
-            <dt>Weapon</dt><dd>{character.weapon}</dd>
-            <dt>Rarity</dt><dd>{character.rarity} stars</dd>
-            <dt>Nation</dt><dd>{character.nation || 'Unknown'}</dd>
+          <dl className="character-attributes">
+            <div><dt>Element</dt><dd>{character.vision}</dd></div>
+            <div><dt>Weapon</dt><dd>{character.weapon}</dd></div>
+            <div><dt>Rarity</dt><dd>{character.rarity} stars</dd></div>
+            <div><dt>Nation</dt><dd>{character.nation || 'Unknown'}</dd></div>
           </dl>
         </div>
       </div>
 
-      <h3>Combat talents</h3>
+      <h3 className="talents-heading">Combat talents</h3>
       {(character.skillTalents ?? []).map(talent => (
         <section key={`${talent.unlock}-${talent.name}`} className="talent">
+          <p className="talent-type">{talent.unlock}</p>
           <h4>{talent.name}</h4>
-          <p>{talent.unlock}</p>
           <p className="talent-description">{talent.description}</p>
         </section>
       ))}

@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #edf2fa;
+  background: #111827;
+}
+
+a {
+  color: #f0cf85;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+input,
+select,
+button {
+  padding: 0.6rem;
+  border: 1px solid #718096;
+  border-radius: 0.4rem;
+  color: #edf2fa;
+  background: #1f2937;
+}
+
+:focus-visible {
+  outline: 3px solid #f0cf85;
+  outline-offset: 3px;
+}

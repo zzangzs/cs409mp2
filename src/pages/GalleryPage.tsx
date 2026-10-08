@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 import { characterImage } from '../api/genshin'
+import CharacterCard from '../components/CharacterCard'
 import type { Character } from '../types/character'
 
 interface Props {
@@ -38,21 +39,12 @@ export default function GalleryPage({ characters }: Props) {
 
       <div className="gallery">
         {visible.map(character => (
-          <Link
-            className="card"
+            <CharacterCard
             key={character.id}
-            to={`/characters/${character.id}`}
-          >
-            <img
-              src={characterImage(character.id)}
-              alt={character.name}
-              loading="lazy"
+            character={character}
             />
-            <h3>{character.name}</h3>
-            <p>{character.vision} · {character.rarity} stars</p>
-          </Link>
         ))}
-      </div>
+       </div>
 
       {visible.length === 0 && <p>No characters match this filter.</p>}
     </section>

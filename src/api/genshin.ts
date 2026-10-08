@@ -33,3 +33,12 @@ export function elementIcon(vision: string): string | undefined {
 
   return `https://genshin.jmp.blue/elements/${element}/icon`
 }
+
+export function nationIcon(nation?: string): string | undefined {
+  const id = nation?.trim().toLowerCase()
+  const supported = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine']
+
+  if (!id || !supported.includes(id)) return undefined
+
+  return `https://genshin.jmp.blue/nations/${id}/icon`
+}

@@ -209,14 +209,37 @@ label {
   font-weight: 600;
 }
 
-.element-icon {
+.attribute-icon {
   display: block;
-  margin-top: 0.6rem;
   object-fit: contain;
 }
 
-.element-icon[hidden] {
-  display: none;
+.attribute-icon-label {
+  position: relative;
+  display: inline-block;
+  margin-top: 0.3rem;
+  border-radius: 0.3rem;
+}
+
+.attribute-tooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 0.6rem);
+  transform: translateY(-50%);
+  padding: 0.25rem 0.6rem;
+  background: #edf2fa;
+  color: #111827;
+  border-radius: 0.3rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.attribute-icon-label:hover .attribute-tooltip,
+.attribute-icon-label:focus .attribute-tooltip {
+  visibility: visible;
 }
 
 .talents-heading {

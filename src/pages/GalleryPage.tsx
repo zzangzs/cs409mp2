@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router'
-import { characterImage } from '../api/genshin'
 import CharacterCard from '../components/CharacterCard'
 import type { Character } from '../types/character'
 

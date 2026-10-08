@@ -16,12 +16,17 @@ export default function ListPage({ characters }: Props) {
       character.name.toLowerCase().includes(query.trim().toLowerCase()),
     )
     .sort((a, b) => {
-      const comparison =
-        sortBy === 'name'
-          ? a.name.localeCompare(b.name)
-          : a.rarity - b.rarity || a.name.localeCompare(b.name)
+      const nameComparison = a.name.localeCompare(b.name)
 
-      return direction === 'asc' ? comparison : -comparison
+      if (sortBy === 'name') {
+        return direction === 'asc' ? nameComparison : -nameComparison
+      }
+
+      const rarityComparison = direction === 'asc'
+        ? a.rarity - b.rarity
+        : b.rarity - a.rarity
+
+      return rarityComparison || nameComparison
     })
 
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, Route, Routes } from 'react-router'
+import { NavLink, Route, Routes } from 'react-router'
 import { getCharacters } from './api/genshin'
 import type { Character } from './types/character'
 import ListPage from './pages/ListPage'
@@ -41,11 +41,11 @@ export default function App() {
 
   return (
     <>
-      <header>
+      <header className="site-header">
         <h1>Genshin Character Explorer</h1>
         <nav aria-label="Main navigation">
-          <Link to="/">List</Link>
-          <Link to="/gallery">Gallery</Link>
+          <NavLink to="/" end>List</NavLink>
+          <NavLink to="/gallery">Gallery</NavLink>
         </nav>
       </header>
 
